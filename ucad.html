@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<head>
+  <title>Ucad</title>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+</head>
+<body>
+  <!-- main-wrapper -->
+  <div id="main-wrapper" class="container_12">
+    <!-- header -->
+    <div id="header">
+      <div id="logo" class="grid_6">
+        <p class="title"><a href="../index-2.html">Ucad</a></p>
+      </div>
+      <div id="menu" class="grid_6">
+        <ul>
+          <li class="current_page_item"><a href="ucad.html">Inicio</a></li>
+          <li><a href="new.html">Generar pagina</a> </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end of header -->
+    <!-- content -->
+    <div id="content" class="grid_8">
+      <h1>UCAD</h1>
+      <div class="recent-posts">
+        <h2>Resumen y textos de la universidad</h2>
+        <img src="Ucad/ucad.jpg" alt="Imagen representativa de UCAD" />
+      </div>
+      <div class="recent-posts">
+        <h2>Propósito</h2>
+        <p>Esta web tiene como propósito servir como un archivo y espacio de repaso para las materias abordadas a lo largo del tiempo. El contenido está resumido en pequeños fragmentos que destacan los aspectos más importantes de cada tema. Además, se incluyen enlaces a contenido externo, como imágenes y videos de clases grabadas en línea, los cuales estarán disponibles a través de Google Drive.</p>
+      </div>
+    </div>
+    <!-- end of content -->
+    <!-- sidebar -->
+    <div id="sidebar" class="grid_3">
+      <!-- buscador -->
+      <div class="sidebar-container">
+        <form method="get" id="searchform" action="#" onsubmit="return false;">
+          <div>
+            <label class="screen-reader-text" for="s">Buscar:</label>
+            <input type="text" value="" name="s" id="s" placeholder="Buscar temas..." oninput="searchTopics()" />
+            <input type="submit" id="searchsubmit" value="Buscar" />
+          </div>
+        </form>
+      </div>
+
+<div class="sidebar-container">
+  <h3>Resumen</h3>
+  <p>Es una recopilación de materias y temas vistos.</p>
+</div>
+
+<div class="sidebar-container">
+  <h3>Temas</h3>
+  <ul id="topics-list">
+    <li><a href="Ucad/Ad_cen_comp.html">Administración de centros de cómputo</a></li>
+    <li>Análisis de sistemas</li>
+    <li>Análisis de sistemas II</li>
+    <li><a href="Ucad/base_datos.html">Base de datos</a></li>
+    <li>Contabilidad y costos</li>
+    <li>Compiladores</li>
+    <li>Diseño de sistemas</li>
+    <li><a href="Ucad/di_sistem_digital.html">Diseño de sistemas digitales</a></li>
+    <li><a href="Ucad/Ecuaciones_dif.html">Ecuaciones diferenciales</a></li>
+    <li><a href="Ucad/desarollo_emp.html">Desarrollo de emprendedores</a></li>
+    <li>Electricidad y magnetismo</li>
+    <li>Ética profesional</li>
+    <li><a href="Ucad/Inteligencia_art.html" >Inteligencia Artificial</a> </li>
+    <li>Ingeniería de software</li>
+    <li>Investigación de operaciones</li>
+    <li><a href="Ucad/legislacion.html">Legislación en informática</a></li>
+    <li>Lenguaje ensamblador</li>
+    <li>Memoria y periféricos</li>
+    <li>Métodos numéricos</li>
+    <li>Microprocesadores y controladores</li>
+    <li>Programación orientada a objetos</li>
+    <li>Programación visual</li>
+    <li><a href="Ucad/programacion.html">Programación I</a></li>
+    <li>Programación II</li>
+    <li>Redes</li>
+    <li>Sistema operativo multitarea</li>
+    <li>Sistemas operativos</li>
+    <li>Termodinámica</li>
+  </ul>
+</div>
+
+      <script>
+        function searchTopics() {
+    // Obtener el valor del campo de búsqueda
+          const searchValue = document.getElementById("s").value.toLowerCase();
+
+    // Obtener la lista de temas
+          const topicsList = document.getElementById("topics-list");
+          const topics = topicsList.getElementsByTagName("li");
+
+    // Recorrer y filtrar los temas
+          for (let i = 0; i < topics.length; i++) {
+            const topicText = topics[i].textContent || topics[i].innerText;
+
+      // Mostrar u ocultar según el término buscado
+            if (topicText.toLowerCase().includes(searchValue)) {
+        topics[i].style.display = ""; // Mostrar
+      } else {
+        topics[i].style.display = "none"; // Ocultar
+      }
+    }
+  }
+</script>
+
+<!-- end buscador -->
+
+
+
+<div class="sidebar-container">
+  <h3>Contacto de soporte</h3>
+  <ul>
+    <li><a href="9piha0iou@mozmail.com">Email</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- end of sidebar -->
+<div class="clear"></div>
+<!-- footer -->
+<div id="comments-section">
+  <h2>Agrega un comentario</h2>
+  <form id="comment-form" onsubmit="return false;">
+    <textarea id="comment-input" placeholder="Escribe tu comentario aquí..." rows="4" cols="50"></textarea><br />
+    <button id="post-comment" onclick="postComment()">Publicar</button>
+  </form>
+  <h3>Comentarios:</h3>
+  <ul id="comments-list">
+    <!-- Aquí se agregarán los comentarios -->
+  </ul>
+</div>
+<script>
+  function postComment() {
+    // Obtener el contenido del comentario
+    const commentInput = document.getElementById("comment-input");
+    const commentText = commentInput.value.trim();
+
+    // Validar que no esté vacío
+    if (commentText === "") {
+      alert("Por favor, escribe un comentario antes de publicar.");
+      return;
+    }
+
+    // Crear un nuevo elemento de lista para el comentario
+    const newComment = document.createElement("li");
+    newComment.textContent = commentText;
+
+    // Agregar el comentario a la lista
+    const commentsList = document.getElementById("comments-list");
+    commentsList.appendChild(newComment);
+
+    // Limpiar el campo de entrada
+    commentInput.value = "";
+  }
+</script>
+
+
+
+
+<!-- <div id="footer">
+  <p>&copy; Copyright 2024  | Plantilla modificada |  <a href="https://plantillashtmlgratis.com/wp-content/themes/helium-child/vista_previa/page121/tardy/xhtml-elements.php#">link de la original</a>  </p>
+</div> -->
+</div>
+</body>
+</html>
